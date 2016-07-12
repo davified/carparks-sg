@@ -1,6 +1,12 @@
 body {
   padding-left: 20px;
   padding-right: 20px;
+  font-family: Futura;
+}
+
+.animate {
+  animation-duration: 3s;
+  animation-name: slidein;
 }
 
 #mapid {

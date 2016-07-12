@@ -1,3 +1,5 @@
+// var geo = require('mapbox-geocoding')
+
 // api request for URA carpark availability data.
 $(document).ready(function () {
   var settings = {
@@ -11,18 +13,14 @@ $(document).ready(function () {
   }
   $('button.get-data').click(function () {
     $.ajax(settings).done(function (response) {
-      return response
+      console.log(response)
     })
   })
 })
-// var cv = new SVY21();
 
-// Computing SVY21 from Lat/Lon
-// var lat = 1.2949192688485278;
-// var lon = 103.77367436885834;
-// var result = cv.computeSVY21(lat, lon);
-// console.log(result);
-//
-// // Computing Lat/Lon from SVY21
-// var resultLatLon = cv.computeLatLon(result.N, result.E);
-// console.log(resultLatLon);
+  // geo.setAccessToken('pk.eyJ1IjoiZGF2aWZpZWQiLCJhIjoiY2lxYWoycnMwMDF2YWZxbTZqMWswaTBhZSJ9.YFUyoIivDGFBsxZSLW1erw')
+  //
+  // // Geocode an address to coordinates
+  // geo.geocode('mapbox.places', 'Dam Square, Amsterdam', function (err, geoData) {
+	//   console.log(geoData)
+  // })

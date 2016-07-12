@@ -3,7 +3,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
 const api = require('./api')
-const ura = require('./ura')
+// const ura = require('./ura')
 
 var app = express()
 
@@ -17,7 +17,7 @@ app.set('view engine', 'ejs')
 
 /* index(map) views and api views */
 app.use('/', api)
-app.use('/', ura)
+// app.use('/', ura)
 
 app.get('/', function (req, res) {
   res.render('index')
