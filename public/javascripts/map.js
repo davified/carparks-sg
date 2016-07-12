@@ -1,4 +1,6 @@
+/* jQuery */
 $(document).ready(function () {
+// making the map
   var mymap = L.map('mapid').setView([1.3521, 103.8198], 12)
 
   L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/streets-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
@@ -16,34 +18,31 @@ $(document).ready(function () {
   //   ext: 'png'
   // }).addTo(mymap)
 
-// visualising the data
-  var lat = 1.4055606511815117
-  var lon = 103.77270741120161
-  var size = 500
-  var message = 'hello world'
-  i = 0 // temporary i number
-  // for (i = 0; i < carparks.length; i++) {
-    // $('div#test').append(carparks[i].Development)
+  // making ajax to our own api
+    $('button.get-data').click(function () {
+      $.ajax({
+        url: 'http://localhost:3000/api',
+        type: 'GET',
+        success: function (data) {
+          for (i = 0; i < data.length; i++) {
+            $('div#test').append(data[i].Development)
 
-    // var lon = carparks[i].Longitude
-    // var lat = carparks[i].Latitude
-    // var size = carparks[i].Lots
-    // var message = carparks[i].Development + ": " + carparks[i].Lots
+            var lon = data[i].Longitude
+            var lat = data[i].Latitude
+            var lots = data[i].Lots
+            var message = data[i].Development + ": " + data[i].Lots
 
-    var intensity = size / 1
+            var intensity = lots / 500
 
-    var circle = L.circle([lat, lon], 500, {
-      fillColor: 'darkblue',
-      fillOpacity: intensity,
-      stroke: false
-    }).addTo(mymap)
+            var circle = L.circle([lat, lon], 100, {
+              fillColor: 'darkblue',
+              fillOpacity: intensity,
+              stroke: false
+            }).addTo(mymap)
 
-    // circle.bindPopup("Heavy Traffic on TPE (towards SLE) at Punggol Rd Exit").openPopup();
-    circle.bindPopup(message).openPopup()
-  // }
-
-  // testing if map.js works and if it's hooked up to index.html. answer: yes
-  $('button.get-data').click(function () {
-    alert('jquery works!')
-  })
+            circle.bindPopup(message).openPopup()
+          }
+        }
+      })
+    })
 })

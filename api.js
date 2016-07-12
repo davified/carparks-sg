@@ -20,7 +20,6 @@ router.get('/api', (req, res) => {
       res.send(infoArray)
     }
   })
-
 })
 
 module.exports = router
