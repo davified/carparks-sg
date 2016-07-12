@@ -1,14 +1,29 @@
 body {
+  padding-top: 10px;
   padding-left: 20px;
   padding-right: 20px;
-  font-family: Futura;
+  font-family: Avenir;
+  background: #FDFDF0
+}
+
+h1{
+  text-align: center
 }
 
 .animate {
-  animation-duration: 3s;
-  animation-name: slidein;
+  animation: bubble1-h-movement 1s ease-in infinite, bubble1-v-movement 300ms ease-in-out infinite alternate, bubble-scale-movement 300ms ease-in-out infinite alternate;
 }
 
 #mapid {
-  height: 700px
+  height: 550px
+}
+
+@media (max-width: 1200px) {
+  #mapid {
+    height: 90%
+  }
+
+  h1 {
+    font-size: 6em
+  }
 }
