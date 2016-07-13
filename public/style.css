@@ -1,7 +1,4 @@
 body {
-  padding-top: 10px;
-  padding-left: 20px;
-  padding-right: 20px;
   font-family: Avenir;
   background: #FDFDF0
 }
@@ -14,13 +11,65 @@ h1{
   animation: bubble1-h-movement 1s ease-in infinite, bubble1-v-movement 300ms ease-in-out infinite alternate, bubble-scale-movement 300ms ease-in-out infinite alternate;
 }
 
+form {
+  margin-left: 30px;
+  position: absolute;
+  z-index: 1
+}
+.searchbar {
+  width: 500px;
+  height: 40px
+}
+.search {
+  padding:8px 15px;
+  border:0px solid #dbdbdb;
+}
+.button {
+  position:relative;
+  border:2px solid #0E5DA2;
+  background-color:#0E5DA2;
+  color:#fafafa;
+  padding: 7px 15px;
+
+}
+.button:hover  {
+  background:#428bca;
+  border:2px solid #428bca;
+  transition: 0.2s
+}
+
+.popup {
+  height: 50px;
+  background: #0E5DA2;
+  opacity: 0.7;
+  margin-top: -2px
+}
+
+h4.popup {
+  font-size: 2em;
+  opacity: 1;
+  color: white;
+  padding: 10px
+}
+
 #mapid {
-  height: 550px
+  height: 100%
+}
+
+div.bottom {
+  position: absolute;
+  z-index: 1;
+  bottom: 0
+}
+
+a {
+  color: white;
+  text-decoration:underline;
 }
 
 @media (max-width: 1200px) {
   #mapid {
-    height: 90%
+    height: 100%;
   }
 
   h1 {

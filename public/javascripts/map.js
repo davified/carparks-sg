@@ -47,15 +47,15 @@ $(document).ready(function () {
 
         var intensity = lots / 600
 
-        if (lots > 20) {
-          var circle = L.circle([lat, lon], 100, {
+        if (lots > 300) {
+          var circle = L.circle([lat, lon], 80, {
             fillColor: '#00387F',
             fillOpacity: intensity,
             stroke: false,
             className: 'animate'
           }).addTo(mymap)
         } else {
-          var circle = L.circle([lat, lon], 100, {
+          var circle = L.circle([lat, lon], 80, {
             fillColor: 'red',
             fillOpacity: 0.8,
             stroke: false,
@@ -69,5 +69,10 @@ $(document).ready(function () {
     $('button.get-data').click(function() {
       getData()
       console.log('refreshed!')
+    })
+
+    $('div.popup').show('slow')
+    $('div.popup').click(function() {
+      $(this).hide('slow')
     })
 })
