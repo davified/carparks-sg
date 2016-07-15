@@ -12,16 +12,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static('files'))
 
-app.set('views', path.join(__dirname, 'views'))
-app.set('view engine', 'ejs')
+// app.set('views', path.join(__dirname, 'views'))
+// app.set('view engine', 'ejs')
 
 /* index(map) views and api views */
 app.use('/', api)
 // app.use('/', ura)
 
-app.get('/', function (req, res) {
-  res.render('index')
-})
+app.get('/', function(req, res) {
+    res.sendFile(path.join(__dirname + '/index.html'));
+});
 
 // setting up the port
 app.listen(port, function () {
