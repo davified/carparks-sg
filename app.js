@@ -3,7 +3,7 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
 const api = require('./api')
-const favicon = require('serve-favicon')
+// const favicon = require('serve-favicon')
 require('dotenv').config();
 
 var app = express()
@@ -13,7 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
 app.use(express.static('files'))
 // adding favicon to remove the irritating Internal Server Error 500 which chrome gets
-app.use(favicon(__dirname + '/public/favicon.ico'))
+// app.use(favicon(__dirname + '/public/favicon.ico'))
 
 // app.set('views', path.join(__dirname, 'views'))
 // app.set('view engine', 'ejs')
