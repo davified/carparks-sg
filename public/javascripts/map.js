@@ -13,7 +13,7 @@ $(document).ready(function () {
   function getData () {
     // data.empty()
     $.ajax({
-      url: 'https://carparks-sg.herokuapp.com/api',
+      url: 'http://carparks-sg.herokuapp.com/api',
       type: 'GET',
       success: function (data) {
         visualiseData(data)
