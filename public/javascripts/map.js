@@ -13,7 +13,7 @@ $(document).ready(function () {
   function getData () {
     // data.empty()
     $.ajax({
-      url: 'http://carparks-sg.herokuapp.com/api',
+      url: 'http://localhost:3000/api',
       type: 'GET',
       success: function (data) {
         visualiseData(data)
@@ -83,6 +83,14 @@ $(document).ready(function () {
       stroke: false
     }).addTo(mymap)
     circle.bindPopup(message).openPopup()
+    $('ul.dropdown-menu').hide('fast')
+  })
+
+  $('button#dropdownMenu1').click(function () {
+    $('ul.dropdown-menu').show('fast')
+    $('div#mapid').click(function () {
+      $('ul.dropdown-menu').hide('fast')
+    })
   })
 
   // appending date and time at the bottom of the page

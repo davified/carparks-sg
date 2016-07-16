@@ -59,20 +59,11 @@ div.bottom {
   font-weight: 1em
 }
 
-.dropdown:hover .dropdown-menu {
-    display: block;
-    -webkit-transition: all 0.3s;
-    -moz-transition: all 0.3s;
-    -ms-transition: all 0.3s;
-    -o-transition: all 0.3s;
-    transition: all 0.3s;
-}
-
-li.dropdown {
+li {
   display: inline;
   list-style: none;
   background: white;
-  padding:12px;
+  font-size: 1em
 }
 
 .columns {
@@ -102,8 +93,12 @@ li.dropdown {
   }
 
   .columns {
-    /*height: 1000px;*/
-    overflow-y: scroll;
-    column-count: 1 ;
+    height: 1000px;
+    overflow: auto;
+    column-count: 2;
+  }
+
+  ul, li {
+    font-size: 2.5em;
   }
 }
