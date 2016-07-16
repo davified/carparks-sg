@@ -13,7 +13,7 @@ $(document).ready(function () {
   function getData () {
     // data.empty()
     $.ajax({
-      url: 'http://localhost:3000/api',
+      url: 'http://carparks-sg.herokuapp.com/api',
       type: 'GET',
       success: function (data) {
         visualiseData(data)
@@ -25,7 +25,7 @@ $(document).ready(function () {
 
   //  DEFINE FUNCTION FOR VISUALISING ACTUAL DATA
   function visualiseData (data) {
-    data.sort(function (b, a) {return (a.Development > b.Development) ? 1 : ((b.Development > a.Development) ? -1 : 0) })
+    data.sort(function (b, a) { return (a.Development > b.Development) ? 1 : ((b.Development > a.Development) ? -1 : 0) })
     for (let i = 0; i < data.length; i++) {
       var lon = data[i].Longitude
       var lat = data[i].Latitude
