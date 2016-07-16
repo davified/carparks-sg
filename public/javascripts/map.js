@@ -5,6 +5,7 @@ $(document).ready(function () {
   L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: '<a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
+    zoomControl: false,
     accessToken: 'pk.eyJ1IjoiZGF2aWZpZWQiLCJhIjoiY2lxYWoxMnF3MDF0Z2Z2bTZ6MHl3cWdiMyJ9.JhNjMNWSTxbGzp7ck3ahMA'
   }).addTo(mymap)
 
@@ -77,8 +78,8 @@ $(document).ready(function () {
     const message = currentCarpark + ': ' + currentLots + ' lots left'
     mymap.setView([currentLat, currentLon], 15)
     var circle = L.circle([currentLat, currentLon], 80, {
-      // fillColor: '#FFFFFF',
-      // fillOpacity: 1,
+      fillColor: '#FFFFFF',
+      fillOpacity: 0,
       stroke: false
     }).addTo(mymap)
     circle.bindPopup(message).openPopup()
@@ -87,7 +88,7 @@ $(document).ready(function () {
   // appending date and time at the bottom of the page
   var now = new Date()
   var nowString = now.toString().slice(0, 21)
-  $('div.bottom').append('Carpark availability is accurate as of ', nowString)
+  $('div.bottom').append('Carpark availability is accurate as of ', nowString, '<br> Data kindly provided by <a href="https://www.facebook.com/WeKeepYourWorldMoving/?fref=ts">LTA Data Mall</a>')
 
   // let's do this! making the ajax request and visualising the data returned
   getData()

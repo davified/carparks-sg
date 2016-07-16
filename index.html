@@ -6,20 +6,25 @@
     <link rel="stylesheet" href="../stylesheets/leaflet.css" />
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
-    <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
+    <!-- <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'> -->
+    <link href='https://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
     <script src="../javascripts/leaflet.js"></script>
     <script src="javascripts/map.js"></script>
     <link rel="stylesheet" href="../stylesheets/style.css">
   </head>
   <body>
-    <form class="search">
+    <div class="search">
       <div class='popup' style="cursor: pointer">
-        <h4 class='popup'>Click on the circles to see the number of lots available. Click me to close this popup!</h4>
+        <h1><strong>// carparks-sg</strong></h1>
+          <h3>
+          1. Click on the dots to see the number of lots available <br>
+          2. Or, you can select a carpark from the dropdown list<br>
+          3. Click me to close this popup!<br>
+        </h3>
       </div>
-      <div class='searchbar'>
         <div class="dropdown">
           <a href="."><img src="images/parking_logo.png" height='45'></a>
-          <button class="btn btn-default btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          <button class="btn btn-default btn-lg dropdown-toggle dropdown" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
             Choose a carpark
             <span class="caret"></span>
           </button>
@@ -27,13 +32,11 @@
             <!--  jQuery appends carparks list here-->
           </ul>
         </div>
-      </div>
-
-      <!-- <input type="text" placeholder="(e.g. ION Orchard)" class="searchbar">
-      <input type="button" value="Search" class="button"> -->
-    </form>
+    </div>
     <div id="mapid">
-      <div class='bottom'></div>
+      <div class='bottom'>
+        <!--  jQuery appends date and time of ajax request here-->
+      </div>
     </div>
   </body>
 </html>

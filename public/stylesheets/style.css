@@ -1,25 +1,22 @@
 body {
-  font-family: 'Noto Sans'
+  font-family: Raleway
 }
 
 .animate {
   animation: bubble1-h-movement 1s ease-in infinite, bubble1-v-movement 300ms ease-in-out infinite alternate, bubble-scale-movement 300ms ease-in-out infinite alternate;
 }
 
-form {
+div.search {
   margin-left: 30px;
   position: absolute;
   z-index: 1
-}
-
-.searchbar {
-  padding-top: 10px
 }
 
 .search {
   padding:8px 15px;
   width: 100%
 }
+
 .button {
   position:relative;
   border:2px solid #0E5DA2;
@@ -35,17 +32,19 @@ form {
 }
 
 .popup {
-  height: 50px;
+  height: 50%;
   background: #0E5DA2;
-  opacity: 0.7;
-  margin-top: -2px
+  margin-top: -2px;
+  width: 50%
 }
 
-h4.popup {
-  font-size: 2em;
-  opacity: 1;
+div.popup {
+  font-size: 1.5em;
+  opacity: 0.8;
   color: white;
-  padding: 10px
+  padding: -20px;
+  border: 10px solid transparent;
+  margin: 10px
 }
 
 #mapid {
@@ -62,6 +61,11 @@ div.bottom {
 
 .dropdown:hover .dropdown-menu {
     display: block;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
 }
 
 li.dropdown {
