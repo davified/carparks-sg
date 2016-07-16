@@ -70,7 +70,7 @@ $(document).ready(function () {
   })
 
   $('.dropdown-menu').delegate('li', 'click', function () {
-    carpark = $(this)
+    const carpark = $(this)
     const currentLat = carpark.attr('lat')
     const currentLon = carpark.attr('lon')
     const currentLots = carpark.attr('lots')
@@ -88,7 +88,7 @@ $(document).ready(function () {
   // appending date and time at the bottom of the page
   var now = new Date()
   var nowString = now.toString().slice(0, 21)
-  $('div.bottom').append('Carpark availability is accurate as of ', nowString, '<br> Data kindly provided by <a href="https://www.facebook.com/WeKeepYourWorldMoving/?fref=ts">LTA Data Mall</a>')
+  $('div.bottom').append('Carpark availability is accurate as of ', nowString, '<br> Data kindly provided by the <a href="https://www.mytransport.sg/content/mytransport/home/dataMall.html">LTA Data Mall API</a>. <br> Want to see more carpark data? <a href="https://www.facebook.com/WeKeepYourWorldMoving/?fref=ts">Drop LTA a message!</a>')
 
   // let's do this! making the ajax request and visualising the data returned
   getData()
