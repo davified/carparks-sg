@@ -84,11 +84,22 @@ li.dropdown {
   overflow-y: scroll;
 }
 
-@media only screen and (max-width: 480px) {
+@media only screen and (max-width: 1200px) {
 
-  /*h1 {
-    font-size: 6em
-  }*/
+  h1 {
+    font-size: 3em
+  }
+
+  h2, h3 {
+    font-size: 1.8em
+  }
+
+  .popup {
+    height: 80%;
+    background: #0E5DA2;
+    margin-top: -2px;
+    width: 90%
+  }
 
   .columns {
     /*height: 1000px;*/
