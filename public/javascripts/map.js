@@ -1,9 +1,9 @@
-/* global $:false L:false*/
+/* global $ L */
 $(document).ready(function () {
   // making the map
   var mymap = L.map('mapid').setView([1.2981, 103.8498], 15)
   L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    attribution: '<a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
     accessToken: 'pk.eyJ1IjoiZGF2aWZpZWQiLCJhIjoiY2lxYWoxMnF3MDF0Z2Z2bTZ6MHl3cWdiMyJ9.JhNjMNWSTxbGzp7ck3ahMA'
   }).addTo(mymap)
@@ -24,11 +24,14 @@ $(document).ready(function () {
 
   //  DEFINE FUNCTION FOR VISUALISING ACTUAL DATA
   function visualiseData (data) {
+    data.sort(function (b, a) {return (a.Development > b.Development) ? 1 : ((b.Development > a.Development) ? -1 : 0) })
     for (let i = 0; i < data.length; i++) {
       var lon = data[i].Longitude
       var lat = data[i].Latitude
       var lots = data[i].Lots
       var message = data[i].Development + ': ' + data[i].Lots + ' lots left'
+
+      $('ul.dropdown-menu').prepend('<li class="carpark" name="' + data[i].Development + '" lon="' + data[i].Longitude + '" lat="' + data[i].Latitude + '" lots="' + data[i].Lots + '"><a href="#">' + data[i].Development + '</a></li>')
 
       var intensity = lots / 600
 
@@ -59,34 +62,33 @@ $(document).ready(function () {
   //   mymap.removeLayer(circlesGroup)
   // }
 
-  function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-
   // popup on page load
-  $('div.popup').show('slow', 1000)
+  $('div.popup').show('slow')
   $('div.popup').click(function () {
     $(this).hide('slow')
   })
+
+  $('.dropdown-menu').delegate('li', 'click', function () {
+    carpark = $(this)
+    const currentLat = carpark.attr('lat')
+    const currentLon = carpark.attr('lon')
+    const currentLots = carpark.attr('lots')
+    const currentCarpark = carpark.attr('name')
+    const message = currentCarpark + ': ' + currentLots + ' lots left'
+    mymap.setView([currentLat, currentLon], 15)
+    var circle = L.circle([currentLat, currentLon], 80, {
+      // fillColor: '#FFFFFF',
+      // fillOpacity: 1,
+      stroke: false
+    }).addTo(mymap)
+    circle.bindPopup(message).openPopup()
+  })
+
+  // appending date and time at the bottom of the page
   var now = new Date()
-  var nowString = now.toString().slice(0,21)
+  var nowString = now.toString().slice(0, 21)
+  $('div.bottom').append('Carpark availability is accurate as of ', nowString)
 
-  $('div.bottom').append('Carpark availability as of ', nowString)
-
+  // let's do this! making the ajax request and visualising the data returned
   getData()
 })

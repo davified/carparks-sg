@@ -1,15 +1,15 @@
+<!DOCTYPE HTML PUBLIC>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <title>SG #Carparks</title>
-    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+    <link rel="stylesheet" href="../stylesheets/leaflet.css" />
     <script src="https://code.jquery.com/jquery-3.0.0.min.js" integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <link href='https://fonts.googleapis.com/css?family=Noto+Sans' rel='stylesheet' type='text/css'>
-    <script src="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.js"></script>
+    <script src="../javascripts/leaflet.js"></script>
     <script src="javascripts/map.js"></script>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
   </head>
   <body>
     <form class="search">
@@ -17,16 +17,18 @@
         <h4 class='popup'>Click on the circles to see the number of lots available. Click me to close this popup!</h4>
       </div>
       <div class='searchbar'>
-        <a href="#"></a><img src="images/parking_logo.png" height='45'>
-        <li class="dropdown" style="cursor: pointer;">
-         <a data-toggle="dropdown" class="dropdown-toggle">Dropdown <b class="caret"></b></a>
-         <ul class="dropdown-menu">
-           <li><a href="#">Another action</a></li>
-           <li><a href="#">Something else here</a></li>
-           <li><a href="#">Separated link</a></li>
-         </ul>
-        </li>
+        <div class="dropdown">
+          <a href="."><img src="images/parking_logo.png" height='45'></a>
+          <button class="btn btn-default btn-lg dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+            Choose a carpark
+            <span class="caret"></span>
+          </button>
+          <ul class="dropdown-menu columns" aria-labelledby="dropdownMenu1">
+            <!--  jQuery appends carparks list here-->
+          </ul>
+        </div>
       </div>
+
       <!-- <input type="text" placeholder="(e.g. ION Orchard)" class="searchbar">
       <input type="button" value="Search" class="button"> -->
     </form>

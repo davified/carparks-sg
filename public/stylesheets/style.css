@@ -18,7 +18,7 @@ form {
 
 .search {
   padding:8px 15px;
-  border:0px solid #dbdbdb;
+  width: 100%
 }
 .button {
   position:relative;
@@ -71,12 +71,24 @@ li.dropdown {
   padding:12px;
 }
 
-@media (max-width: 1200px) {
-  #mapid {
-    height: 100%;
-  }
+.columns {
+  -moz-column-count:2; /* Firefox */
+  -webkit-column-count:2; /* Safari and Chrome */
+  column-count:4;
+  width: 80%;
+  height:250px;
+  overflow-y: scroll;
+}
 
-  h1 {
+@media only screen and (max-width: 480px) {
+
+  /*h1 {
     font-size: 6em
+  }*/
+
+  .columns {
+    /*height: 1000px;*/
+    overflow-y: scroll;
+    column-count: 1 ;
   }
 }
