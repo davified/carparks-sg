@@ -3,7 +3,7 @@ html,body {
 }
 
 body {
-  font-family: Raleway
+  font-family: 'Raleway'
 }
 
 .animate {
@@ -52,7 +52,8 @@ div.popup {
 }
 
 #mapid {
-  height: 100%
+  height: 100%;
+  width: 100%
 }
 
 div.bottom {
@@ -102,7 +103,12 @@ li {
     column-count: 2;
   }
 
-  ul, li {
+  button#dropdownMenu1, ul, li {
     font-size: 2.5em;
+  }
+
+  div.leaflet-popup-content {
+    font-size: 2.5em;
+    text-align: center;
   }
 }
