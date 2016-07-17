@@ -26,7 +26,7 @@ $(document).ready(function () {
   //  DEFINE FUNCTION FOR VISUALISING ACTUAL DATA
   function visualiseData (data) {
     data.sort(function (b, a) { return (a.Development > b.Development) ? 1 : ((b.Development > a.Development) ? -1 : 0) })
-    for (let i = 0; i < data.length; i++) {
+    for (var i = 0; i < data.length; i++) {
       var lon = data[i].Longitude
       var lat = data[i].Latitude
       var lots = data[i].Lots
