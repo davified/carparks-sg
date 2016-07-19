@@ -36,7 +36,7 @@ $(document).ready(function () {
 
       var intensity = lots / 600
 
-      if (lots > 100) {
+      if (lots > 50) {
         var circle = L.circle([lat, lon], 80, {
           fillColor: '#09AD83',
           fillOpacity: intensity,
