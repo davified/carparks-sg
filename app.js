@@ -3,15 +3,12 @@ const path = require('path')
 const bodyParser = require('body-parser')
 const port = process.env.PORT || 3000
 const api = require('./api')
-// const favicon = require('serve-favicon')
-// require('dotenv').config()
+const dotenv = require('dotenv')
+dotenv.load()
 
 var app = express()
 
-// app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({ extended: false }))
 app.use(express.static(path.join(__dirname, 'public')))
-// app.use(express.static('files'))
 app.use(function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*')
   res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept')
@@ -36,10 +33,8 @@ app.use(function (req, res, next) {
   next(err)
 })
 
-// error handlers
-
+// ERROR HANDLERS
 // development error handler
-// will print stacktrace
 if (app.get('env') === 'development') {
   app.use(function (err, req, res, next) {
     res.status(err.status || 500)
@@ -51,7 +46,6 @@ if (app.get('env') === 'development') {
 }
 
 // production error handler
-// no stacktraces leaked to user
 app.use(function (err, req, res, next) {
   res.status(err.status || 500)
   res.render('error', {

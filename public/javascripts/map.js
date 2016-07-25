@@ -1,6 +1,7 @@
 /* global $ L */
+
 $(document).ready(function () {
-  // making the map
+  // loading the base map
   var mymap = L.map('mapid').setView([1.2981, 103.8498], 15)
   L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/light-v9/tiles/256/{z}/{x}/{y}?access_token={accessToken}', {
     attribution: '<a href="http://mapbox.com">Mapbox</a>',
@@ -11,9 +12,9 @@ $(document).ready(function () {
 
   // making ajax request to our own api
   function getData () {
-    // data.empty()
     $.ajax({
-      url: 'https://carparks-sg.herokuapp.com/api',
+      // url: 'https://carparks-sg.herokuapp.com/api',
+      url: 'http://localhost:3000/api',
       type: 'GET',
       success: function (data) {
         visualiseData(data)
@@ -23,15 +24,17 @@ $(document).ready(function () {
 
   var circlesGroup = new L.FeatureGroup()
 
-  //  DEFINE FUNCTION FOR VISUALISING ACTUAL DATA
+  //  DEFINE FUNCTION FOR VISUALISING DATA RETURNED FROM AJAX CALL
   function visualiseData (data) {
     data.sort(function (b, a) { return (a.Development > b.Development) ? 1 : ((b.Development > a.Development) ? -1 : 0) })
+
     for (var i = 0; i < data.length; i++) {
       var lon = data[i].Longitude
       var lat = data[i].Latitude
       var lots = data[i].Lots
       var message = data[i].Development + ': ' + data[i].Lots + ' lots left'
 
+      // appending class properties so that we can manipulate each data point in the DOM
       $('ul.dropdown-menu').prepend('<li class="carpark" name="' + data[i].Development + '" lon="' + data[i].Longitude + '" lat="' + data[i].Latitude + '" lots="' + data[i].Lots + '"><a href="#">' + data[i].Development + '</a></li>')
 
       var intensity = lots / 600
@@ -57,10 +60,11 @@ $(document).ready(function () {
       }
     }
     mymap.addLayer(circlesGroup)
+    // setTimeout(function(){mymap.removeLayer(circlesGroup)}, 59500)
   }
 
   // function removeAllMarkers () {
-  //   mymap.removeLayer(circlesGroup)
+  //
   // }
 
   // popup on page load
@@ -93,6 +97,8 @@ $(document).ready(function () {
     })
   })
 
+  $('.animate').show('slow')
+
   // appending date and time at the bottom of the page
   var now = new Date()
   var nowString = now.toString().slice(0, 21)
@@ -100,4 +106,5 @@ $(document).ready(function () {
 
   // let's do this! making the ajax request and visualising the data returned
   getData()
+  // window.setInterval(getData, 60000)
 })

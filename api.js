@@ -2,12 +2,14 @@
 var express = require('express')
 var router = express.Router()
 var request = require('request')
+const dotenv = require('dotenv')
+dotenv.load()
 
 var options = {
   url: 'http://datamall2.mytransport.sg/ltaodataservice/CarParkAvailability',
   headers: {
-    'accountkey': 'wX12O8DoTAuIZ9/3fMyKWQ==',
-    'uniqueuserid': '438ffd3c-51ef-4ccb-bb52-aa7014a236fb',
+    'accountkey': process.env.ACCOUNTKEY,
+    'uniqueuserid': process.env.UNIQUEUSERID,
     'accept': 'application/json'
   }
 }
