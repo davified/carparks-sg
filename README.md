@@ -9,4 +9,4 @@
 ## Tools and tips
 1. Exploring data provided by APIs (with Postman)
 2. Getting serious with Node and express 
-3. 
+3. Visualising geographic data with leaflet.js
