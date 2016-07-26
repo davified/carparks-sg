@@ -13,8 +13,8 @@ $(document).ready(function () {
   // making ajax request to our own api
   function getData () {
     $.ajax({
-      // url: 'https://carparks-sg.herokuapp.com/api',
-      url: 'http://localhost:3000/api',
+      url: 'https://carparks-sg.herokuapp.com/api',
+      // url: 'http://localhost:3000/api',
       type: 'GET',
       success: function (data) {
         visualiseData(data)
