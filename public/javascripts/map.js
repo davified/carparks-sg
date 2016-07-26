@@ -105,4 +105,5 @@ $(document).ready(function () {
   getData()
   // running getData() every minute, since that's the API's update frequency
   window.setInterval(getData, 60000)
+  setInterval(function(){$('ul.dropdown-menu').empty() }, 59950)
 })
