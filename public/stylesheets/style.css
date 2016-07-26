@@ -3,7 +3,11 @@ html,body {
 }
 
 body {
-  font-family: 'Raleway'
+  font-family: 'Reem Kufi'
+}
+
+a {
+  color: lightblue
 }
 
 .animate {
@@ -72,8 +76,8 @@ li {
 }
 
 .columns {
-  -moz-column-count:2; /* Firefox */
-  -webkit-column-count:2; /* Safari and Chrome */
+  -moz-column-count:2;
+  -webkit-column-count:2;
   column-count:4;
   width: 80%;
   height:250px;

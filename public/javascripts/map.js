@@ -22,6 +22,7 @@ $(document).ready(function () {
     })
   }
 
+  // adding all circles to a layer so that we can remove and re-add the circles every time the API call is made (once per minute)
   var circlesGroup = new L.FeatureGroup()
 
   //  DEFINE FUNCTION FOR VISUALISING DATA RETURNED FROM AJAX CALL
@@ -60,14 +61,12 @@ $(document).ready(function () {
       }
     }
     mymap.addLayer(circlesGroup)
-    // setTimeout(function(){mymap.removeLayer(circlesGroup)}, 59500)
+    setTimeout(function () {
+      mymap.removeLayer(circlesGroup)
+    }, 59500)
   }
 
-  // function removeAllMarkers () {
-  //
-  // }
-
-  // popup on page load
+  // popup box on page load
   $('div.popup').show('slow')
   $('div.popup').click(function () {
     $(this).hide('slow')
@@ -97,8 +96,6 @@ $(document).ready(function () {
     })
   })
 
-  $('.animate').show('slow')
-
   // appending date and time at the bottom of the page
   var now = new Date()
   var nowString = now.toString().slice(0, 21)
@@ -106,5 +103,6 @@ $(document).ready(function () {
 
   // let's do this! making the ajax request and visualising the data returned
   getData()
-  // window.setInterval(getData, 60000)
+  // running getData() every minute, since that's the API's update frequency
+  window.setInterval(getData, 60000)
 })
